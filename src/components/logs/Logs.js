@@ -7,7 +7,6 @@ class Logs extends Component {
   };
 
   getLogs() {
-  	console.log(this.props);
     axios.get("http://163.172.12.162:27001/logs/" + this.props.match.params.contId)
     .then((response) => {
       const newState = Object.assign({}, this.state, {

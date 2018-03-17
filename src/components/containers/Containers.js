@@ -29,7 +29,7 @@ class Containers extends Component {
       <ul>
         {
           this.state.containers.map((container, index) => {
-            return <li key={index}><Link to={`/logs/${container.id}`}>{container.name}</Link></li>;
+            return <li key={index}><Link to={`/containers/${container.id}`}>{container.name}</Link></li>;
           })
         }
       </ul>
