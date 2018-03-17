@@ -3,17 +3,23 @@ import { Link } from "react-router-dom";
 import logo from './logo.svg';
 import './App.css';
 
+/**
+ * Header module of the app
+ *
+ * @module Header
+ * @return {JSX} header template
+ */
 const Header = () => (
-	<header className="App-header">
-		<img src={logo} className="App-logo" alt="logo" />
+    <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
         <h1 className="App-title">Tiramisu Watch</h1>
-		<nav>
-			<ul>
-				<li><Link to="/">Home</Link></li>
-				<li><Link to="/containers">Containers</Link></li>
-			</ul>
-		</nav>
-	</header>
+        <nav>
+            <ul>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/containers">Containers</Link></li>
+            </ul>
+        </nav>
+    </header>
 );
 
 export default Header;

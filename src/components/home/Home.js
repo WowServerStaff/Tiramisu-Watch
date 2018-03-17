@@ -1,6 +1,18 @@
 import React, { Component } from 'react';
 
+/**
+ * Home component
+ *
+ * @module Home
+ */
 class Home extends Component {
+
+  /**
+   * Method rendering the home template
+   *
+   * @method render
+   * @return {JSX} home template
+   */
   render() {
     return (
         <p className="App-intro">
