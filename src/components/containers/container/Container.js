@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import RESTService from "../../../services/RESTService";
 
 /**
  * Single container component
@@ -14,6 +14,9 @@ class Container extends Component {
     container: {}
   };
 
+  // Basic rest service
+  service = new RESTService("containers");
+
   /**
    * Method which get the container related to the given id.
    * Add it to the state.
@@ -21,7 +24,7 @@ class Container extends Component {
    * @method getContainer
    */
   getContainer() {
-    axios.get("http://163.172.12.162:27001/containers/" + this.props.match.params.contId)
+    this.service.getById(this.props.match.params.contId)
     .then((response) => {
       const newState = Object.assign({}, this.state, {
         container : response.data.data

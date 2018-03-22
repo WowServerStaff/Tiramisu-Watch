@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-import axios from "axios";
+import RESTService from "../../services/RESTService";
 
 /**
  * Containers component, list all the docker containers
@@ -14,6 +14,9 @@ class Containers extends Component {
     containers: []
   };
 
+  // Basic rest service
+  service = new RESTService("containers");
+
   /**
    * Method which get all the docker containers.
    * Add them to the state.
@@ -21,7 +24,7 @@ class Containers extends Component {
    * @method getContainers
    */
   getContainers() {
-    axios.get("http://163.172.12.162:27001/containers")
+    this.service.get()
     .then((response) => {
       const newState = Object.assign({}, this.state, {
         containers : response.data.data

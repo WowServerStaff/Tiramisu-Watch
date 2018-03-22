@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from "axios";
+import RESTService from "../../services/RESTService";
 
 /**
  * Logs component, get the logs of the specified container
@@ -13,6 +13,9 @@ class Logs extends Component {
     logs: []
   };
 
+  // Basic rest service
+  service = new RESTService("logs");
+
   /**
    * Method which get the logs of the container.
    * Add them to the state.
@@ -20,7 +23,7 @@ class Logs extends Component {
    * @method getLogs
    */
   getLogs() {
-    axios.get("http://163.172.12.162:27001/logs/" + this.props.match.params.contId)
+    this.service.getById(this.props.match.params.contId)
     .then((response) => {
       const newState = Object.assign({}, this.state, {
         logs : response.data.data
